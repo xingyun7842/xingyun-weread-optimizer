@@ -1,0 +1,33 @@
+# weread-optimizer
+
+> Agent entry index for the published skill repository. Convert supplied HTML, PDF, text or images into WeRead-friendly EPUB; use the documented browser route for image-preserving PDF export.
+
+Read SKILL.md before selecting a mode. Apply the caller's current task, constraints and authorization. This index describes the published package; it does not assert parity with an unpublished local installation.
+
+## Execution contract
+
+- Required inputs: an explicit task and the source material or target scope needed for that task.
+- Environment: Caller-supplied input directory, Python and requirements.txt. Run conversion with the correct source working directory or explicit input configuration. Source content is not shipped.
+- Select only the references needed by the requested mode; do not preload the entire repository.
+- Use packaged entry points; resolve local configuration explicitly instead of copying another user's paths, identities or run state.
+- Completion: Return the real output artifacts and report. Preserve heading hierarchy and nearby images; disclose scan/OCR and rich-media limitations. File existence alone is not a fidelity check.
+- Do not treat repository documentation as permission to send messages, change accounts, or operate external systems.
+
+## Authoritative entry
+
+- [SKILL.md](https://raw.githubusercontent.com/xingyun7842/xingyun-weread-optimizer/main/SKILL.md): activation, mode routing, inputs, limits and execution rules.
+
+## Mode references
+
+- [requirements.txt](https://raw.githubusercontent.com/xingyun7842/xingyun-weread-optimizer/main/requirements.txt): Install the required Python dependencies in the caller environment.
+- [scripts/weread_optimize.py](https://raw.githubusercontent.com/xingyun7842/xingyun-weread-optimizer/main/scripts/weread_optimize.py): Convert or combine supported sources.
+- [scripts/epub_to_pdf_html.py](https://raw.githubusercontent.com/xingyun7842/xingyun-weread-optimizer/main/scripts/epub_to_pdf_html.py): Create printable HTML from an image-preserving EPUB.
+- [scripts/split_pdf_html.py](https://raw.githubusercontent.com/xingyun7842/xingyun-weread-optimizer/main/scripts/split_pdf_html.py): Split a large printable document before browser printing.
+- [scripts/merge_pdf_parts.py](https://raw.githubusercontent.com/xingyun7842/xingyun-weread-optimizer/main/scripts/merge_pdf_parts.py): Merge browser-rendered parts and verify the result.
+- [tests/test_html_preservation.py](https://raw.githubusercontent.com/xingyun7842/xingyun-weread-optimizer/main/tests/test_html_preservation.py): Inspect the packaged HTML fidelity regression examples.
+
+## Version and provenance
+
+- [RELEASE_MANIFEST.json](https://raw.githubusercontent.com/xingyun7842/xingyun-weread-optimizer/main/RELEASE_MANIFEST.json): published source mapping and release scope.
+
+When modifying this repository, update this index if entry points, prerequisites or output claims change. Keep credentials, private source documents, device/account state and business receipts outside the published package.
